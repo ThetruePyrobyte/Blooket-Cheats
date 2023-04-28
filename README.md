@@ -39,7 +39,7 @@ Unobfuscated scripts will not work if you try copying it and pasting it into a b
 
 <details><summary><h3>Can you give me infinite tokens / bypass daily limit / permanently give me blooks / change pack luck?</h3></summary>
 
-No, these are things we would've already done if they were possible, they're managed on the backend of Blooket so we can't modify them
+I can almost do these. Still working on it tho (:
 </details>
 
 <details><summary><h3>Can you make hacks for (game)</h3></summary>

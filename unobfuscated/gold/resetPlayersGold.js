@@ -12,31 +12,21 @@
 
 /* THE UPDATE CHECKER IS ADDED DURING COMMIT PREP, THERE MAY BE REDUNDANT CODE, DO NOT TOUCH */
 
-/* Update Checker start */
-(async () => { /* This is to prevent "identifier i is already declared errors" */
+(async () => {
     let i = document.createElement('iframe');
     document.body.append(i);
-    window.confirm = i.contentWindow.confirm.bind(window);
+    window.prompt = i.contentWindow.prompt.bind(window);
     i.remove();
-    Object.values(webpackJsonp.push([[], { ['']: (_, a, b) => { a.cache = b.c }, }, [['']]]).cache).find(x => x.exports?.a?.get).exports.a.get("https://" + (location.host.startsWith("dashboard") ? location.host + "/api/games" : "play.blooket.com/api/gamequestionsets") + "?gameId=6368436a976422d8a3f70cd7").then(x => parseInt(`0${x.data.questions.find(x => x.question == "../cheats/gold/resetPlayersGold.js")?.answers?.[0]}`)).then(async x => {
-        if (1678659460301 > x || confirm("This cheat is outdated and might be bugged, would you still like to run it? You can find regularly updated cheats here https://github.com/Minesraft2/Blooket-Cheats")) {
-            /* Update Checker end */
-            let i = document.createElement('iframe');
-            document.body.append(i);
-            window.prompt = i.contentWindow.prompt.bind(window);
-            i.remove();
-            let player = prompt("Who's gold would you like to reset?");
-            let { stateNode: { props, state } } = Object.values(document.querySelector('#app > div > div'))[1].children[0]._owner;
-            stateNode.props.liveGameController.getDatabaseVal("c", (players) => {
-                if (players && Object.keys(players).map(x=>x.toLowerCase()).includes(player.toLowerCase())) props.liveGameController.setVal({
-                    path: "c/".concat(props.client.name),
-                    val: {
-                        b: props.client.blook,
-                        g: state.gold,
-                        tat: `${player}:swap:0`
-                    }
-                });
-            })
-        }
-    });
+    let player = prompt("Who's gold would you like to reset?");
+    let { stateNode: { props, state } } = Object.values(document.querySelector('body div[id] > div > div'))[1].children[0]._owner;
+    stateNode.props.liveGameController.getDatabaseVal("c", (players) => {
+        if (players && Object.keys(players).map(x=>x.toLowerCase()).includes(player.toLowerCase())) props.liveGameController.setVal({
+            path: "c/".concat(props.client.name),
+            val: {
+                b: props.client.blook,
+                g: state.gold,
+                tat: `${player}:swap:0`
+            }
+        });
+    })
 })();

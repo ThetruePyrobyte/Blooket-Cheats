@@ -12,27 +12,17 @@
 
 /* THE UPDATE CHECKER IS ADDED DURING COMMIT PREP, THERE MAY BE REDUNDANT CODE, DO NOT TOUCH */
 
-/* Update Checker start */
-(async () => { /* This is to prevent "identifier i is already declared errors" */
-    let i = document.createElement('iframe');
-    document.body.append(i);
-    window.confirm = i.contentWindow.confirm.bind(window);
-    i.remove();
-    Object.values(webpackJsonp.push([[], { ['']: (_, a, b) => { a.cache = b.c }, }, [['']]]).cache).find(x => x.exports?.a?.get).exports.a.get("https://" + (location.host.startsWith("dashboard") ? location.host + "/api/games" : "play.blooket.com/api/gamequestionsets") + "?gameId=6368436a976422d8a3f70cd7").then(x => parseInt(`0${x.data.questions.find(x => x.question == "../cheats/gold/swapGold.js")?.answers?.[0]}`)).then(async x => {
-        if (1678659460306 > x || confirm("This cheat is outdated and might be bugged, would you still like to run it? You can find regularly updated cheats here https://github.com/Minesraft2/Blooket-Cheats")) {
-            /* Update Checker end */
-            let { stateNode } = Object.values(document.querySelector('#app > div > div'))[1].children[0]._owner;
-            stateNode.props.liveGameController.getDatabaseVal("c", (players) => {
-                stateNode.setState({
-                    players: (players ? Object.entries(players).map(([name, { b, g }]) => ({
-                        name, blook: b, gold: g || 0
-                    })).filter((e) => e.name != stateNode.props.client.name).sort(({ gold }, { gold: gold2 }) => gold2 - gold) : []),
-                    ready: true,
-                    phaseTwo: true,
-                    stage: "prize",
-                    choiceObj: { type: "swap" }
-                });
-            });
-        }
+(async () => {
+    let { stateNode } = Object.values(document.querySelector('body div[id] > div > div'))[1].children[0]._owner;
+    stateNode.props.liveGameController.getDatabaseVal("c", (players) => {
+        stateNode.setState({
+            players: (players ? Object.entries(players).map(([name, { b, g }]) => ({
+                name, blook: b, gold: g || 0
+            })).filter((e) => e.name != stateNode.props.client.name).sort(({ gold }, { gold: gold2 }) => gold2 - gold) : []),
+            ready: true,
+            phaseTwo: true,
+            stage: "prize",
+            choiceObj: { type: "swap" }
+        });
     });
 })();

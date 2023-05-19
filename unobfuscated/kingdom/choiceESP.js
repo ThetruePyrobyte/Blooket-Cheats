@@ -12,37 +12,27 @@
 
 /* THE UPDATE CHECKER IS ADDED DURING COMMIT PREP, THERE MAY BE REDUNDANT CODE, DO NOT TOUCH */
 
-/* Update Checker start */
-(async () => { /* This is to prevent "identifier i is already declared errors" */
-    let i = document.createElement('iframe');
-    document.body.append(i);
-    window.confirm = i.contentWindow.confirm.bind(window);
-    i.remove();
-    Object.values(webpackJsonp.push([[], { ['']: (_, a, b) => { a.cache = b.c }, }, [['']]]).cache).find(x => x.exports?.a?.get).exports.a.get("https://" + (location.host.startsWith("dashboard") ? location.host + "/api/games" : "play.blooket.com/api/gamequestionsets") + "?gameId=6368436a976422d8a3f70cd7").then(x => parseInt(`0${x.data.questions.find(x => x.question == "../cheats/kingdom/choiceESP.js")?.answers?.[0]}`)).then(async x => {
-        if (1678659460367 > x || confirm("This cheat is outdated and might be bugged, would you still like to run it? You can find regularly updated cheats here https://github.com/Minesraft2/Blooket-Cheats")) {
-            /* Update Checker end */
-            let stats = ['materials', 'people', 'happiness', 'gold'];
-            let elements = Object.fromEntries([...document.querySelectorAll('[class^=styles__statContainer]')].map((container, i) => [stats[i], container]));
-            let { guest: data, phase } = Object.values(document.querySelector('#app > div > div'))[1].children[0]._owner.stateNode.state;
-            if (phase == "choice") {
-                Array.from(document.getElementsByClassName('choiceESP')).forEach(x => x.remove());
-                Object.entries(data.yes || {}).forEach(x => {
-                    if (x[0] == 'msg' || !stats.includes(x[0])) return;
-                    let element = document.createElement('div');
-                    element.className = 'choiceESP';
-                    element.style = 'font-size: 24px; color: rgb(75, 194, 46); font-weight: bolder;';
-                    element.innerText = String(x[1])
-                    elements[x[0]].appendChild(element);
-                })
-                Object.entries(data.no || {}).forEach(x => {
-                    if (x[0] == 'msg' || !stats.includes(x[0])) return;
-                    let element = document.createElement('div');
-                    element.className = 'choiceESP';
-                    element.style = 'font-size: 24px; color: darkred; font-weight: bolder;';
-                    element.innerText = String(x[1])
-                    elements[x[0]].appendChild(element);
-                })
-            }
-        }
-    });
+(async () => {
+    let stats = ['materials', 'people', 'happiness', 'gold'];
+    let elements = Object.fromEntries([...document.querySelectorAll('[class^=styles__statContainer]')].map((container, i) => [stats[i], container]));
+    let { guest: data, phase } = Object.values(document.querySelector('body div[id] > div > div'))[1].children[0]._owner.stateNode.state;
+    if (phase == "choice") {
+        Array.from(document.getElementsByClassName('choiceESP')).forEach(x => x.remove());
+        Object.entries(data.yes || {}).forEach(x => {
+            if (x[0] == 'msg' || !stats.includes(x[0])) return;
+            let element = document.createElement('div');
+            element.className = 'choiceESP';
+            element.style = 'font-size: 24px; color: rgb(75, 194, 46); font-weight: bolder;';
+            element.innerText = String(x[1])
+            elements[x[0]].appendChild(element);
+        })
+        Object.entries(data.no || {}).forEach(x => {
+            if (x[0] == 'msg' || !stats.includes(x[0])) return;
+            let element = document.createElement('div');
+            element.className = 'choiceESP';
+            element.style = 'font-size: 24px; color: darkred; font-weight: bolder;';
+            element.innerText = String(x[1])
+            elements[x[0]].appendChild(element);
+        })
+    }
 })();

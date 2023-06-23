@@ -154,7 +154,7 @@
                     visibility: "visible",
                     zIndex: "5",
                     height: "47px",
-                    width: "280px",
+                    width: "210px",
                     background: "var(--infoColor)",
                     boxShadow: "inset 0 -8px rgb(0 0 0 / 20%), 0 0 4px rgb(0 0 0 / 15%)",
                     borderBottomLeftRadius: "10px",
@@ -163,7 +163,7 @@
                     fontWeight: "700",
                     userSelect: "text"
                 },
-                innerHTML: "Created by OneMinesraft2#4560"
+                innerHTML: "Discord - oneminesraft2"
             }),
             (controlButtons = createElement("div", {
                 id: "controlButtons",
@@ -729,6 +729,25 @@
                         })();
                         await new Promise(r => setTimeout(r, 100));
                     }
+                }
+            },
+            {
+                name: "Change Blook Ingame",
+                description: "Changes your blook",
+                inputs: [
+                    {
+                        name: "Blook",
+                        type: "options",
+                        options: async () => {
+                            let { webpack } = webpackJsonp.push([[], { ['1234']: (_, a, b) => { a.webpack = b }, }, [['1234']]]);
+                            return Object.keys(Object.values(webpack.c).find(x => x.exports.a?.Chick && x.exports.a?.Elephant).exports.a);
+                        }
+                    }
+                ],
+                run: function (blook) {
+                    let { props } = Object.values(document.querySelector('body div[id] > div > div'))[1].children[0]._owner.stateNode;
+                    props.client.blook = blook;
+                    props.liveGameController.setVal({ path: `c/${props.client.name}/b`, val: blook });
                 }
             },
             {

@@ -16,6 +16,8 @@ Prevents bots from joining your Blooket game (HOST SCRIPT)
 Clicks the first correct answer
 ## [Auto Sell Dupes On Open](autoSellDupesOnOpen.js)
 Sells the blook you unlock when you open a pack if you already have one (Doesn't sell Legendaries or rarer)
+## [Change Blook Ingame](changeBlookIngame.js)
+Changes your blook
 ## [Every Answer Correct](everyAnswerCorrect.js)
 Makes every answer correct (Fixed bug that doesn't count it as correct in finals)
 ## [Flood Game](floodGame.js)

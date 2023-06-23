@@ -135,7 +135,7 @@
         bodyDiv.appendChild(footer);
         footer.style.fontSize = '0.9rem';
         footer.style.paddingBottom = '5px';
-        footer.innerHTML = (`<span><a target="blank" href="https://discord.gg/QznzysxvX4">Made by OneMinesraft2#4560</a></span>`);
+        footer.innerHTML = (`<span><a target="blank" href="https://discord.gg/QznzysxvX4">Discord - oneminesraft2</a></span>`);
     
         let cheats = ({
             global: [
@@ -424,6 +424,19 @@
                             })();
                             await new Promise(r => setTimeout(r, 100));
                         }
+                    }
+                },
+                {
+                    name: "Change Blook Ingame",
+                    description: "Changes your blook",
+                    run: function () {
+                        let i = document.createElement('iframe');
+                        document.body.append(i);
+                        window.prompt = i.contentWindow.prompt.bind(window);
+                        i.remove();
+                        let { props } = Object.values(document.querySelector('body div[id] > div > div'))[1].children[0]._owner.stateNode;
+                        props.client.blook = prompt("Blook Name: (Case Sensitive)");;
+                        props.liveGameController.setVal({ path: `c/${props.client.name}/b`, val: props.client.blook });
                     }
                 },
                 {
